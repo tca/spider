@@ -8,7 +8,11 @@ This is supposed to work as a backend for NieA. It should be possible to compile
 * t1 works
 * t2 works
 * t3 works
-* t4 fails
+* t4 works!
+* ufo0 works
+* ufo1 works
+* ufo2 fails
+* ufo3 works
 
 Goal:
 
