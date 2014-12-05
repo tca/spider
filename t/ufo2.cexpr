@@ -1,0 +1,384 @@
+;; c
+(include "runtime.c")
+
+(define ((struct scm)
+         count-change
+         ((struct scm) env2498)
+         ((struct scm) amount))
+  (declare (struct scm) r0)
+  (declare (struct scm) r1)
+  (declare (struct scm) r2)
+  (declare (struct scm) clor3)
+  (set! clor3 (scm-wrap-fptr cc))
+  (set! r1 amount)
+  (set! r2 (make-struct (struct scm) (tag 0) (val.i 5)))
+  (declare (type scm-fptr) clo4)
+  (declare (struct scm) env5)
+  (set! clo4
+    (struct-ref
+      (struct-ref
+        (array-ref (struct->ref (struct-ref (struct-ref clor3 val) v) elt) 0)
+        val)
+      f))
+  (set! env5
+    (array-ref (struct->ref (struct-ref (struct-ref clor3 val) v) elt) 1))
+  (set! r0 (clo4 env5 r1 r2))
+  (return r0))
+
+(define ((struct scm)
+         or
+         ((struct scm) env2498)
+         ((struct scm) x)
+         ((struct scm) y))
+  (declare (struct scm) r6)
+  (declare (struct scm) r7)
+  (set! r7 x)
+  (if (scm-extract-truth r7)
+    (begin (set! r6 (make-struct (struct scm) (tag 0) (val.i 1))))
+    (begin (set! r6 y)))
+  (return r6))
+
+(define ((struct scm)
+         cc
+         ((struct scm) env2498)
+         ((struct scm) amount)
+         ((struct scm) kinds-of-coins))
+  (declare (struct scm) r8)
+  (declare (struct scm) r9)
+  (declare (struct scm) r10)
+  (declare (struct scm) r11)
+  (declare (struct scm) r15)
+  (declare (struct scm) r16)
+  (declare (struct scm) r17)
+  (declare (struct scm) r21)
+  (declare (struct scm) r22)
+  (declare (struct scm) r26)
+  (declare (struct scm) r27)
+  (declare (struct scm) r31)
+  (declare (struct scm) r32)
+  (declare (struct scm) r36)
+  (declare (struct scm) r37)
+  (declare (struct scm) r41)
+  (declare (struct scm) r42)
+  (declare (struct scm) r46)
+  (declare (struct scm) r47)
+  (declare (struct scm) r51)
+  (declare (struct scm) r52)
+  (declare (struct scm) r56)
+  (declare (struct scm) clor12)
+  (set! clor12 (scm-wrap-fptr scm-eq))
+  (set! r10 amount)
+  (set! r11 (make-struct (struct scm) (tag 0) (val.i 0)))
+  (declare (type scm-fptr) clo13)
+  (declare (struct scm) env14)
+  (set! clo13
+    (struct-ref
+      (struct-ref
+        (array-ref (struct->ref (struct-ref (struct-ref clor12 val) v) elt) 0)
+        val)
+      f))
+  (set! env14
+    (array-ref (struct->ref (struct-ref (struct-ref clor12 val) v) elt) 1))
+  (set! r9 (clo13 env14 r10 r11))
+  (if (scm-extract-truth r9)
+    (begin (set! r8 (make-struct (struct scm) (tag 0) (val.i 1))))
+    (begin
+      (declare (struct scm) clor18)
+      (set! clor18 (scm-wrap-fptr or))
+      (declare (struct scm) clor23)
+      (set! clor23 (scm-wrap-fptr scm-lt))
+      (set! r21 amount)
+      (set! r22 (make-struct (struct scm) (tag 0) (val.i 0)))
+      (declare (type scm-fptr) clo24)
+      (declare (struct scm) env25)
+      (set! clo24
+        (struct-ref
+          (struct-ref
+            (array-ref
+              (struct->ref (struct-ref (struct-ref clor23 val) v) elt)
+              0)
+            val)
+          f))
+      (set! env25
+        (array-ref (struct->ref (struct-ref (struct-ref clor23 val) v) elt) 1))
+      (set! r16 (clo24 env25 r21 r22))
+      (declare (struct scm) clor28)
+      (set! clor28 (scm-wrap-fptr scm-eq))
+      (set! r26 kinds-of-coins)
+      (set! r27 (make-struct (struct scm) (tag 0) (val.i 0)))
+      (declare (type scm-fptr) clo29)
+      (declare (struct scm) env30)
+      (set! clo29
+        (struct-ref
+          (struct-ref
+            (array-ref
+              (struct->ref (struct-ref (struct-ref clor28 val) v) elt)
+              0)
+            val)
+          f))
+      (set! env30
+        (array-ref (struct->ref (struct-ref (struct-ref clor28 val) v) elt) 1))
+      (set! r17 (clo29 env30 r26 r27))
+      (declare (type scm-fptr) clo19)
+      (declare (struct scm) env20)
+      (set! clo19
+        (struct-ref
+          (struct-ref
+            (array-ref
+              (struct->ref (struct-ref (struct-ref clor18 val) v) elt)
+              0)
+            val)
+          f))
+      (set! env20
+        (array-ref (struct->ref (struct-ref (struct-ref clor18 val) v) elt) 1))
+      (set! r15 (clo19 env20 r16 r17))
+      (if (scm-extract-truth r15)
+        (begin (set! r8 (make-struct (struct scm) (tag 0) (val.i 0))))
+        (begin
+          (declare (struct scm) clor33)
+          (set! clor33 (scm-wrap-fptr scm-plus))
+          (declare (struct scm) clor38)
+          (set! clor38 (scm-wrap-fptr cc))
+          (set! r36 amount)
+          (declare (struct scm) clor43)
+          (set! clor43 (scm-wrap-fptr scm-minus))
+          (set! r41 kinds-of-coins)
+          (set! r42 (make-struct (struct scm) (tag 0) (val.i 1)))
+          (declare (type scm-fptr) clo44)
+          (declare (struct scm) env45)
+          (set! clo44
+            (struct-ref
+              (struct-ref
+                (array-ref
+                  (struct->ref (struct-ref (struct-ref clor43 val) v) elt)
+                  0)
+                val)
+              f))
+          (set! env45
+            (array-ref
+              (struct->ref (struct-ref (struct-ref clor43 val) v) elt)
+              1))
+          (set! r37 (clo44 env45 r41 r42))
+          (declare (type scm-fptr) clo39)
+          (declare (struct scm) env40)
+          (set! clo39
+            (struct-ref
+              (struct-ref
+                (array-ref
+                  (struct->ref (struct-ref (struct-ref clor38 val) v) elt)
+                  0)
+                val)
+              f))
+          (set! env40
+            (array-ref
+              (struct->ref (struct-ref (struct-ref clor38 val) v) elt)
+              1))
+          (set! r31 (clo39 env40 r36 r37))
+          (declare (struct scm) clor48)
+          (set! clor48 (scm-wrap-fptr cc))
+          (declare (struct scm) clor53)
+          (set! clor53 (scm-wrap-fptr scm-minus))
+          (set! r51 amount)
+          (declare (struct scm) clor57)
+          (set! clor57 (scm-wrap-fptr first-denomination))
+          (set! r56 kinds-of-coins)
+          (declare (type scm-fptr) clo58)
+          (declare (struct scm) env59)
+          (set! clo58
+            (struct-ref
+              (struct-ref
+                (array-ref
+                  (struct->ref (struct-ref (struct-ref clor57 val) v) elt)
+                  0)
+                val)
+              f))
+          (set! env59
+            (array-ref
+              (struct->ref (struct-ref (struct-ref clor57 val) v) elt)
+              1))
+          (set! r52 (clo58 env59 r56))
+          (declare (type scm-fptr) clo54)
+          (declare (struct scm) env55)
+          (set! clo54
+            (struct-ref
+              (struct-ref
+                (array-ref
+                  (struct->ref (struct-ref (struct-ref clor53 val) v) elt)
+                  0)
+                val)
+              f))
+          (set! env55
+            (array-ref
+              (struct->ref (struct-ref (struct-ref clor53 val) v) elt)
+              1))
+          (set! r46 (clo54 env55 r51 r52))
+          (set! r47 kinds-of-coins)
+          (declare (type scm-fptr) clo49)
+          (declare (struct scm) env50)
+          (set! clo49
+            (struct-ref
+              (struct-ref
+                (array-ref
+                  (struct->ref (struct-ref (struct-ref clor48 val) v) elt)
+                  0)
+                val)
+              f))
+          (set! env50
+            (array-ref
+              (struct->ref (struct-ref (struct-ref clor48 val) v) elt)
+              1))
+          (set! r32 (clo49 env50 r46 r47))
+          (declare (type scm-fptr) clo34)
+          (declare (struct scm) env35)
+          (set! clo34
+            (struct-ref
+              (struct-ref
+                (array-ref
+                  (struct->ref (struct-ref (struct-ref clor33 val) v) elt)
+                  0)
+                val)
+              f))
+          (set! env35
+            (array-ref
+              (struct->ref (struct-ref (struct-ref clor33 val) v) elt)
+              1))
+          (set! r8 (clo34 env35 r31 r32))))))
+  (return r8))
+
+(define ((struct scm)
+         first-denomination
+         ((struct scm) env2498)
+         ((struct scm) kinds-of-coins))
+  (declare (struct scm) r60)
+  (declare (struct scm) r61)
+  (declare (struct scm) r62)
+  (declare (struct scm) r63)
+  (declare (struct scm) r67)
+  (declare (struct scm) r68)
+  (declare (struct scm) r69)
+  (declare (struct scm) r73)
+  (declare (struct scm) r74)
+  (declare (struct scm) r75)
+  (declare (struct scm) r79)
+  (declare (struct scm) r80)
+  (declare (struct scm) r81)
+  (declare (struct scm) clor64)
+  (set! clor64 (scm-wrap-fptr scm-eq))
+  (set! r62 kinds-of-coins)
+  (set! r63 (make-struct (struct scm) (tag 0) (val.i 1)))
+  (declare (type scm-fptr) clo65)
+  (declare (struct scm) env66)
+  (set! clo65
+    (struct-ref
+      (struct-ref
+        (array-ref (struct->ref (struct-ref (struct-ref clor64 val) v) elt) 0)
+        val)
+      f))
+  (set! env66
+    (array-ref (struct->ref (struct-ref (struct-ref clor64 val) v) elt) 1))
+  (set! r61 (clo65 env66 r62 r63))
+  (if (scm-extract-truth r61)
+    (begin (set! r60 (make-struct (struct scm) (tag 0) (val.i 1))))
+    (begin
+      (declare (struct scm) clor70)
+      (set! clor70 (scm-wrap-fptr scm-eq))
+      (set! r68 kinds-of-coins)
+      (set! r69 (make-struct (struct scm) (tag 0) (val.i 2)))
+      (declare (type scm-fptr) clo71)
+      (declare (struct scm) env72)
+      (set! clo71
+        (struct-ref
+          (struct-ref
+            (array-ref
+              (struct->ref (struct-ref (struct-ref clor70 val) v) elt)
+              0)
+            val)
+          f))
+      (set! env72
+        (array-ref (struct->ref (struct-ref (struct-ref clor70 val) v) elt) 1))
+      (set! r67 (clo71 env72 r68 r69))
+      (if (scm-extract-truth r67)
+        (begin (set! r60 (make-struct (struct scm) (tag 0) (val.i 5))))
+        (begin
+          (declare (struct scm) clor76)
+          (set! clor76 (scm-wrap-fptr scm-eq))
+          (set! r74 kinds-of-coins)
+          (set! r75 (make-struct (struct scm) (tag 0) (val.i 3)))
+          (declare (type scm-fptr) clo77)
+          (declare (struct scm) env78)
+          (set! clo77
+            (struct-ref
+              (struct-ref
+                (array-ref
+                  (struct->ref (struct-ref (struct-ref clor76 val) v) elt)
+                  0)
+                val)
+              f))
+          (set! env78
+            (array-ref
+              (struct->ref (struct-ref (struct-ref clor76 val) v) elt)
+              1))
+          (set! r73 (clo77 env78 r74 r75))
+          (if (scm-extract-truth r73)
+            (begin (set! r60 (make-struct (struct scm) (tag 0) (val.i 10))))
+            (begin
+              (declare (struct scm) clor82)
+              (set! clor82 (scm-wrap-fptr scm-eq))
+              (set! r80 kinds-of-coins)
+              (set! r81 (make-struct (struct scm) (tag 0) (val.i 4)))
+              (declare (type scm-fptr) clo83)
+              (declare (struct scm) env84)
+              (set! clo83
+                (struct-ref
+                  (struct-ref
+                    (array-ref
+                      (struct->ref (struct-ref (struct-ref clor82 val) v) elt)
+                      0)
+                    val)
+                  f))
+              (set! env84
+                (array-ref
+                  (struct->ref (struct-ref (struct-ref clor82 val) v) elt)
+                  1))
+              (set! r79 (clo83 env84 r80 r81))
+              (if (scm-extract-truth r79)
+                (begin
+                  (set! r60 (make-struct (struct scm) (tag 0) (val.i 25))))
+                (begin
+                  (set! r60
+                    (make-struct (struct scm) (tag 0) (val.i 50)))))))))))
+  (return r60))
+
+(define ((struct scm) scm-main ((struct scm) env2498))
+  (declare (struct scm) r85)
+  (declare (struct scm) r86)
+  (declare (struct scm) r90)
+  (declare (struct scm) clor87)
+  (set! clor87 (scm-wrap-fptr scm-print))
+  (declare (struct scm) clor91)
+  (set! clor91 (scm-wrap-fptr count-change))
+  (set! r90 (make-struct (struct scm) (tag 0) (val.i 100)))
+  (declare (type scm-fptr) clo92)
+  (declare (struct scm) env93)
+  (set! clo92
+    (struct-ref
+      (struct-ref
+        (array-ref (struct->ref (struct-ref (struct-ref clor91 val) v) elt) 0)
+        val)
+      f))
+  (set! env93
+    (array-ref (struct->ref (struct-ref (struct-ref clor91 val) v) elt) 1))
+  (set! r86 (clo92 env93 r90))
+  (declare (type scm-fptr) clo88)
+  (declare (struct scm) env89)
+  (set! clo88
+    (struct-ref
+      (struct-ref
+        (array-ref (struct->ref (struct-ref (struct-ref clor87 val) v) elt) 0)
+        val)
+      f))
+  (set! env89
+    (array-ref (struct->ref (struct-ref (struct-ref clor87 val) v) elt) 1))
+  (set! r85 (clo88 env89 r86))
+  (return r85))
+
