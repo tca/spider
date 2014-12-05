@@ -12,9 +12,9 @@ struct scm make_closure(scm_fptr, struct scm);
 struct scm scm_wrap_fptr(scm_fptr);
 struct scm scm_print(struct scm, struct scm);
 int scm_extract_truth(struct scm);
-struct scm scm_vector_ref(struct scm, struct scm);
-struct scm scm_vector_length(struct scm);
-struct scm scm_make_vector(struct scm, struct scm);
+struct scm scm_vector_ref(struct scm, struct scm, struct scm);
+struct scm scm_vector_length(struct scm, struct scm);
+struct scm scm_make_vector(struct scm, struct scm, struct scm);
 struct scm scm_string_to_vector(char*);
 struct scm scm_plus(struct scm, struct scm, struct scm);
 struct scm scm_minus(struct scm, struct scm, struct scm);
@@ -112,7 +112,7 @@ int scm_extract_truth(struct scm x) {
     return (!((0 == x.tag)) || !((0 == x.val.i)));
 }
 
-struct scm scm_vector_ref(struct scm vec, struct scm idx) {
+struct scm scm_vector_ref(struct scm env, struct scm vec, struct scm idx) {
     assert((vec.tag == 2));
     assert((idx.tag == 0));
     struct scm* v;
@@ -125,7 +125,7 @@ struct scm scm_vector_ref(struct scm vec, struct scm idx) {
     return ret;
 }
 
-struct scm scm_vector_length(struct scm vec) {
+struct scm scm_vector_length(struct scm env, struct scm vec) {
     assert((vec.tag == 2));
     struct scm* v;
     int i;
@@ -135,7 +135,7 @@ struct scm scm_vector_length(struct scm vec) {
     return ret;
 }
 
-struct scm scm_make_vector(struct scm len, struct scm gen) {
+struct scm scm_make_vector(struct scm env, struct scm len, struct scm gen) {
     assert((len.tag == 0));
     assert((gen.tag == 3));
     struct scm v;
