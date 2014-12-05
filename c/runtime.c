@@ -16,15 +16,15 @@ struct scm scm_vector_ref(struct scm, struct scm);
 struct scm scm_vector_length(struct scm);
 struct scm scm_make_vector(struct scm, struct scm);
 struct scm scm_string_to_vector(char*);
-struct scm scm_plus(struct scm, struct scm);
-struct scm scm_minus(struct scm, struct scm);
-struct scm scm_multiply(struct scm, struct scm);
-struct scm scm_divide(struct scm, struct scm);
-struct scm scm_eq(struct scm, struct scm);
-struct scm scm_gt(struct scm, struct scm);
-struct scm scm_lt(struct scm, struct scm);
-struct scm scm_gteq(struct scm, struct scm);
-struct scm scm_lteq(struct scm, struct scm);
+struct scm scm_plus(struct scm, struct scm, struct scm);
+struct scm scm_minus(struct scm, struct scm, struct scm);
+struct scm scm_multiply(struct scm, struct scm, struct scm);
+struct scm scm_divide(struct scm, struct scm, struct scm);
+struct scm scm_eq(struct scm, struct scm, struct scm);
+struct scm scm_gt(struct scm, struct scm, struct scm);
+struct scm scm_lt(struct scm, struct scm, struct scm);
+struct scm scm_gteq(struct scm, struct scm, struct scm);
+struct scm scm_lteq(struct scm, struct scm, struct scm);
 void main();
 
 struct scm_vector {
@@ -42,7 +42,6 @@ struct scm {
     union scm_value val;
 };
 void scm_memory_trace() {
-    fprintf(stderr, "%d %d\n", scm_time, scm_memory_used);
     return;
 }
 
@@ -170,31 +169,31 @@ struct scm scm_string_to_vector(char* s) {
     return vec;
 }
 
-struct scm scm_plus(struct scm a, struct scm b) {
+struct scm scm_plus(struct scm env, struct scm a, struct scm b) {
     assert((a.tag == 0));
     assert((b.tag == 0));
     return (struct scm){ .tag = 0, .val.i = (a.val.i + b.val.i) };
 }
 
-struct scm scm_minus(struct scm a, struct scm b) {
+struct scm scm_minus(struct scm env, struct scm a, struct scm b) {
     assert((a.tag == 0));
     assert((b.tag == 0));
     return (struct scm){ .tag = 0, .val.i = (a.val.i - b.val.i) };
 }
 
-struct scm scm_multiply(struct scm a, struct scm b) {
+struct scm scm_multiply(struct scm env, struct scm a, struct scm b) {
     assert((a.tag == 0));
     assert((b.tag == 0));
     return (struct scm){ .tag = 0, .val.i = (a.val.i * b.val.i) };
 }
 
-struct scm scm_divide(struct scm a, struct scm b) {
+struct scm scm_divide(struct scm env, struct scm a, struct scm b) {
     assert((a.tag == 0));
     assert((b.tag == 0));
     return (struct scm){ .tag = 0, .val.i = (a.val.i / b.val.i) };
 }
 
-struct scm scm_eq(struct scm a, struct scm b) {
+struct scm scm_eq(struct scm env, struct scm a, struct scm b) {
     if (((a.tag == 0) && (b.tag == 0))) {
         return (struct scm){ .tag = 0, .val.i = (a.val.i == b.val.i) };
     } else {
@@ -202,7 +201,7 @@ struct scm scm_eq(struct scm a, struct scm b) {
     }
 }
 
-struct scm scm_gt(struct scm a, struct scm b) {
+struct scm scm_gt(struct scm env, struct scm a, struct scm b) {
     if (((a.tag == 0) && (b.tag == 0))) {
         return (struct scm){ .tag = 0, .val.i = (a.val.i > b.val.i) };
     } else {
@@ -210,7 +209,7 @@ struct scm scm_gt(struct scm a, struct scm b) {
     }
 }
 
-struct scm scm_lt(struct scm a, struct scm b) {
+struct scm scm_lt(struct scm env, struct scm a, struct scm b) {
     if (((a.tag == 0) && (b.tag == 0))) {
         return (struct scm){ .tag = 0, .val.i = (a.val.i < b.val.i) };
     } else {
@@ -218,7 +217,7 @@ struct scm scm_lt(struct scm a, struct scm b) {
     }
 }
 
-struct scm scm_gteq(struct scm a, struct scm b) {
+struct scm scm_gteq(struct scm env, struct scm a, struct scm b) {
     if (((a.tag == 0) && (b.tag == 0))) {
         return (struct scm){ .tag = 0, .val.i = (a.val.i >= b.val.i) };
     } else {
@@ -226,7 +225,7 @@ struct scm scm_gteq(struct scm a, struct scm b) {
     }
 }
 
-struct scm scm_lteq(struct scm a, struct scm b) {
+struct scm scm_lteq(struct scm env, struct scm a, struct scm b) {
     if (((a.tag == 0) && (b.tag == 0))) {
         return (struct scm){ .tag = 0, .val.i = (a.val.i <= b.val.i) };
     } else {
