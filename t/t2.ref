@@ -1,0 +1,2 @@
+(define (scm-main env2492) (scm-print 1729))
+

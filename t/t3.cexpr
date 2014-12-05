@@ -1,0 +1,71 @@
+;; c
+(include "runtime.c")
+
+(define ((struct scm) scm-main ((struct scm) env2498))
+  (declare (struct scm) r0)
+  (declare (struct scm) r1)
+  (declare (struct scm) r5)
+  (declare (struct scm) r9)
+  (declare (struct scm) clor2)
+  (declare (struct scm) clor6)
+  (set! r9 (allocate-vector 0))
+  (set! clor6 (make-closure g2500 r9))
+  (set! r5 (scm-wrap-fptr scm-print))
+  (declare (type scm-fptr) clo7)
+  (declare (struct scm) env8)
+  (set! clo7
+    (struct-ref
+      (struct-ref
+        (array-ref (struct->ref (struct-ref (struct-ref clor6 val) v) elt) 0)
+        val)
+      f))
+  (set! env8
+    (array-ref (struct->ref (struct-ref (struct-ref clor6 val) v) elt) 1))
+  (set! clor2 (clo7 env8 r5))
+  (set! r1 (scm-string-to-vector "a"))
+  (declare (type scm-fptr) clo3)
+  (declare (struct scm) env4)
+  (set! clo3
+    (struct-ref
+      (struct-ref
+        (array-ref (struct->ref (struct-ref (struct-ref clor2 val) v) elt) 0)
+        val)
+      f))
+  (set! env4
+    (array-ref (struct->ref (struct-ref (struct-ref clor2 val) v) elt) 1))
+  (set! r0 (clo3 env4 r1))
+  (return r0))
+
+(define ((struct scm) g2500 ((struct scm) env2498) ((struct scm) x))
+  (declare (struct scm) r10)
+  (declare (struct scm) r11)
+  (declare (struct scm) r12)
+  (set! r12 x)
+  (set! r11 (allocate-vector 1))
+  (scm-vector-insert! r11 r12 0)
+  (set! r10 (make-closure g2499 r11))
+  (return r10))
+
+(define ((struct scm) g2499 ((struct scm) env2498) ((struct scm) y))
+  (declare (struct scm) r13)
+  (declare (struct scm) r14)
+  (declare (struct scm) r18)
+  (declare (struct scm) r19)
+  (declare (struct scm) clor15)
+  (set! r18 env2498)
+  (set! r19 (make-struct (struct scm) (tag 0) (val.i 0)))
+  (set! clor15 (scm-vector-ref r18 r19))
+  (set! r14 y)
+  (declare (type scm-fptr) clo16)
+  (declare (struct scm) env17)
+  (set! clo16
+    (struct-ref
+      (struct-ref
+        (array-ref (struct->ref (struct-ref (struct-ref clor15 val) v) elt) 0)
+        val)
+      f))
+  (set! env17
+    (array-ref (struct->ref (struct-ref (struct-ref clor15 val) v) elt) 1))
+  (set! r13 (clo16 env17 r14))
+  (return r13))
+

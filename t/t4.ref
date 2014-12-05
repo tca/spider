@@ -1,0 +1,13 @@
+(define (cons env2492 x y) (make-closure g2493 (vector y x)))
+(define (car env2492 c) (invoke-closure c (make-closure g2494 (vector))))
+(define (cdr env2492 c) (invoke-closure c (make-closure g2495 (vector))))
+(define (begin env2492 x y) y)
+(define (print-each env2492 list)
+  (if list (begin (scm-print (car list)) (print-each (cdr list))) 0))
+(define (scm-main env2492)
+  (print-each (cons "Hello" (cons "World" (cons "!" 0)))))
+(define (g2495 env2492 x y) y)
+(define (g2494 env2492 x y) x)
+(define (g2493 env2492 selector)
+  (invoke-closure selector (vector-ref env2492 2) (vector-ref env2492 1)))
+

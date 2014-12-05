@@ -1,0 +1,22 @@
+;; c
+(include "runtime.c")
+
+(define ((struct scm) scm-main ((struct scm) env2498))
+  (declare (struct scm) r0)
+  (declare (struct scm) r1)
+  (declare (struct scm) clor2)
+  (set! clor2 (scm-wrap-fptr scm-print))
+  (set! r1 (make-struct (struct scm) (tag 0) (val.i 1729)))
+  (declare (type scm-fptr) clo3)
+  (declare (struct scm) env4)
+  (set! clo3
+    (struct-ref
+      (struct-ref
+        (array-ref (struct->ref (struct-ref (struct-ref clor2 val) v) elt) 0)
+        val)
+      f))
+  (set! env4
+    (array-ref (struct->ref (struct-ref (struct-ref clor2 val) v) elt) 1))
+  (set! r0 (clo3 env4 r1))
+  (return r0))
+
