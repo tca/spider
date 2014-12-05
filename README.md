@@ -9,3 +9,9 @@ This is supposed to work as a backend for NieA. It should be possible to compile
 * t2 works
 * t3 works
 * t4 fails
+
+Goal:
+
+1: Get all tests working
+2: Get all UFOs working
+3: Add refcounting to reclaim unused memory
