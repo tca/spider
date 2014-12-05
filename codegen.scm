@@ -46,7 +46,7 @@
     (`(if ,b (begin . ,t) (begin . ,e)) =>
      (list `(if (scm-extract-truth ,(gen-exp b))
                 (begin . ,(concat-map gen-body t))
-                (begin . ,(concat-map gen-body t)))))
+                (begin . ,(concat-map gen-body e)))))
     (else (list (gen-exp body)))
     ))
 

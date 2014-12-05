@@ -110,43 +110,7 @@ struct scm print_each(struct scm env2498, struct scm list) {
         env23 = clor21.val.v->elt[1];
         r17 = clo22(env23, r19, r20);
     } else {
-        struct scm clor21;
-        clor21 = scm_wrap_fptr(begin);
-        struct scm clor25;
-        clor25 = scm_wrap_fptr(scm_print);
-        struct scm clor29;
-        clor29 = scm_wrap_fptr(car);
-        r28 = list;
-        scm_fptr clo30;
-        struct scm env31;
-        clo30 = clor29.val.v->elt[0].val.f;
-        env31 = clor29.val.v->elt[1];
-        r24 = clo30(env31, r28);
-        scm_fptr clo26;
-        struct scm env27;
-        clo26 = clor25.val.v->elt[0].val.f;
-        env27 = clor25.val.v->elt[1];
-        r19 = clo26(env27, r24);
-        struct scm clor33;
-        clor33 = scm_wrap_fptr(print_each);
-        struct scm clor37;
-        clor37 = scm_wrap_fptr(cdr);
-        r36 = list;
-        scm_fptr clo38;
-        struct scm env39;
-        clo38 = clor37.val.v->elt[0].val.f;
-        env39 = clor37.val.v->elt[1];
-        r32 = clo38(env39, r36);
-        scm_fptr clo34;
-        struct scm env35;
-        clo34 = clor33.val.v->elt[0].val.f;
-        env35 = clor33.val.v->elt[1];
-        r20 = clo34(env35, r32);
-        scm_fptr clo22;
-        struct scm env23;
-        clo22 = clor21.val.v->elt[0].val.f;
-        env23 = clor21.val.v->elt[1];
-        r17 = clo22(env23, r19, r20);
+        r17 = (struct scm){ .tag = 0, .val.i = 0 };
     }
     return r17;
 }

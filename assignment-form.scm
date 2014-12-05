@@ -45,7 +45,7 @@
                                   (elt (direct (set! ,clo-env (array-ref (struct->ref (struct-ref (struct-ref ,clo-r val) v) elt) 1)))))
                             (elt ,(if r
                                       `(set! ,r (,clo-fptr ,clo-env . ,results))
-                                      `(,clo-fptr . ,results)))))))))
+                                      `(,clo-fptr ,clo-env . ,results)))))))))
     (`(,f . ,args) =>
      (begin (unless (symbol? f) (error (list "Invalid function call with head" f)))
             (let ((results (map (lambda (_) (gen-sym "r")) args)))
