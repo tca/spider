@@ -18,6 +18,7 @@
     (`(,f . ,args) => `(,f . ,(map gen-exp args)))
     (else
      (cond ((symbol? e) e)
+           ((char? e) (char->integer e))
            ((string? e) `(scm-string-to-vector ,e))
            ((number? e) `(make-struct (struct scm) (tag 0) (val.i ,e)))
            (else (error e))))
